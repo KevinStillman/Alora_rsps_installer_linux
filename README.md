@@ -1,7 +1,6 @@
-Automates the installation of Alora on linux machines.
+Automates the installation of Alora on linux machines. To run, you can use either python3 or run the executable found in dist/Install_Alora_Linux/
 
-
-NOTE: The installer script AND the generated "Alora.sh" will likely require you to enable them to be run as programs. To do this
+NOTE: The installer script may require you to enable running it as a script, to do this follow the instructions below.
 
 1. Right click the file
 2. Select Properties
