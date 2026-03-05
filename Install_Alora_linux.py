@@ -24,16 +24,35 @@ time.sleep(.5)
 os.remove(downloaded_file)
 
 
-#build the shell script so users don't need to run the command everytime
+#build the desktop launcher file so users can double-click to run
 print("Creating Alora launcher on desktop...")
-time.sleep(2)
-shell_script_location = Path.home() / "Desktop/Alora.sh"
-shell_script_contents = f'#!/bin/bash\ncd {Path.home() / "Documents"}\njava -jar Alora.jar'
-with open(shell_script_location, "x") as shell_script_file:
-	shell_script_file.write(shell_script_contents)
+time.sleep(.5)
+desktop_file_location = Path.home() / "Desktop/Alora.desktop"
+desktop_file_contents = f'''[Desktop Entry]
+Version=1.0
+Type=Application
+Name=Alora RSPS
+Comment=Launch Alora RSPS Game
+Exec=java -jar {Path.home() / "Documents/Alora.jar"}
+Path={Path.home() / "Documents"}
+Terminal=false
+Icon=applications-games
+Categories=Game;
+'''
+with open(desktop_file_location, "w") as desktop_file:
+	desktop_file.write(desktop_file_contents)
+
+# Make the desktop file executable
+os.chmod(desktop_file_location, 0o755)
+
+# Mark the desktop file as trusted (for GNOME and similar desktop environments)
+try:
+	subprocess.run(f'gio set "{desktop_file_location}" metadata::trusted true', shell=True, check=False)
+except:
+	pass  # If gio isn't available, the chmod should be enough for most systems
+
 time.sleep(.5)
 
 
 print("All done, enjoy!")
-print("NOTE:")
-print("If you aren't able to double click 'Alora.sh' to run the game, you may need to open a folder window and go to properties and enable 'Allow executing file as program'")
+print("You can now double-click 'Alora.desktop' on your desktop to launch the game!")
