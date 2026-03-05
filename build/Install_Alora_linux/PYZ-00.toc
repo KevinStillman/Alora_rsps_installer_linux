@@ -1,4 +1,4 @@
-('/home/kevin/Projects/Alora_rsps_installer_linux/build/Install_Alora_linux/PYZ-00.pyz',
+('/home/kev/Projects/Alora_rsps_installer_linux/build/Install_Alora_linux/PYZ-00.pyz',
  [('_compat_pickle', '/usr/lib/python3.12/_compat_pickle.py', 'PYMODULE'),
   ('_compression', '/usr/lib/python3.12/_compression.py', 'PYMODULE'),
   ('_py_abc', '/usr/lib/python3.12/_py_abc.py', 'PYMODULE'),
